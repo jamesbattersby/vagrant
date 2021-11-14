@@ -562,7 +562,7 @@ module Vagrant
               result = Util::Subprocess.execute("mount")
               result.stdout.each_line do |line|
                 info = line.match(MOUNT_PATTERN)
-                if info && (info[:type] == "drvfs" || info[:type] == "9p")
+                if info && (info[:type] == "drvfs" || info[:type] == "9p" || info[:type] == "ext4")
                   @_wsl_drvfs_mounts << info[:mount]
                 end
               end
